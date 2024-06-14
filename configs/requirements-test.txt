@@ -1,0 +1,6 @@
+pyflakes
+pytest
+pytest-cov
+pylint
+vulture
+mypy

@@ -1,0 +1,10 @@
+FROM python:3.11 AS base
+
+RUN mkdir /app
+COPY ./src/ /app/backend/src/
+COPY ./configs/ /app/backend/configs/
+COPY ./tests/ /app/backend/tests/
+COPY Makefile /app/backend/Makefile
+
+WORKDIR /app/backend
+CMD ["make", "test"]

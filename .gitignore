@@ -1,0 +1,7 @@
+*.venv
+__pycache__/
+.report/
+*cache/
+prod.env
+.coverage
+*cov
