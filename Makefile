@@ -30,7 +30,7 @@ drun: delete-containers build-dev
 
 run: .venv
 	@(. .venv/bin/activate; \
-		python3 src/main.py)
+	python3 src/main.py)
 
 dtest: delete-containers build-test
 	@sudo docker run -it --name testcontainer -p 8000:8000 test
@@ -43,6 +43,16 @@ html-cov: .venv clean
 	@(. .venv/bin/activate; \
 	pytest -v -s --cov=src --cov-report=html --cov-config=configs/.coveragerc)
 	@xdg-open htmlcov/index.html
+
+.PHONY: install-precommit
+install-precommit: .venv
+	@(. .venv/bin/activate; \
+	pre-commit install)
+
+.PHONY: precommit-all
+precommit-all:
+	@(. .venv/bin/activate; \
+	pre-commit run --all-files)
 
 report: .venv
 	@mkdir -p .report

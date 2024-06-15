@@ -14,10 +14,10 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    app_name: str = "myapp"
-    app_description: str = "My FastAPI application."
-    app_version: str = "0.1.0"
-    host: str = "0.0.0.0"
+    app_name: str = 'myapp'
+    app_summary: str = 'My FastAPI application.'
+    app_version: str = '0.1.0'
+    host: str = '0.0.0.0'
     port: int = 8000
     debug: bool = True
 

@@ -1,9 +1,8 @@
-FROM python:3.11 as base
-
-RUN mkdir /app
-COPY ./src/ /app/backend/src/
-COPY ./configs/ /app/backend/configs/
-COPY Makefile /app/backend/Makefile
+FROM python:3.11
 
 WORKDIR /app/backend
+COPY ./src/ ./src/
+COPY ./configs/ ./configs/
+COPY Makefile Makefile
+
 CMD ["make", "run"]
